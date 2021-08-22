@@ -1,0 +1,15 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 3;
+}
+
+select {
+  color: black;
+  border-radius: 0.2vw;
+}
+
+label {
+  padding: 1vh;
+}
