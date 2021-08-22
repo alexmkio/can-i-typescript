@@ -25,7 +25,6 @@ export interface TempHour {
   month:       number;
   day:         number;
   hour:        number;
-  inCalendar:  boolean;
   temperature: number;
 }
 
@@ -33,7 +32,6 @@ export interface WindHour {
   month:       number;
   day:         number;
   hour:        number;
-  inCalendar:  boolean;
   windSpeed:   number;
 }
 
@@ -41,7 +39,6 @@ export interface PreciptHour {
   month:       number;
   day:         number;
   hour:        number;
-  inCalendar:  boolean;
   precipProb:  number;
 }
 
