@@ -1,0 +1,50 @@
+.card {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 1px 0px 4px 3px rgba(0, 0, 0, 0.7);
+  transition: 0.3s;
+  padding: 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.material-icons-outlined.md-24 {
+  font-size: 24px;
+}
+
+.icon {
+  color: black;
+  background-color: yellow;
+  border-radius: 50%;
+  border: 8px solid yellow;
+  transition: 0.3s;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+  color: black;
+  background-color: yellow;
+  border-radius: 50%;
+  border: 8px solid yellow;
+  cursor: pointer;
+}
+
+dl {
+  padding: 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+dt {
+  margin-top: 1rem;
+  font-size: .9rem;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+dd {
+  font-size: 1.4rem;
+  text-transform: capitalize;
+}
