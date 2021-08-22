@@ -11,6 +11,8 @@ export const determineSuitableHours = (thresholds: Thresholds, cleanedData: Clea
       currentHourObj.precipProb <= thresholds.probOfPrecip
     ) {
       return currentHourObj
+    } else {
+      return false
     }
   })
 };
