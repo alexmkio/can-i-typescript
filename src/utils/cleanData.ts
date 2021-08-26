@@ -17,17 +17,20 @@ export const cleanData = (forecast: Weather) => {
       currentPreciptObj.day === currentTempObj.day && 
       currentPreciptObj.hour === currentTempObj.hour)
 
-    let cleanedHour: CleanedHour = {
-      month: currentTempObj.month,
-      day: currentTempObj.day,
-      hour: currentTempObj.hour,
-      inCalendar: false,
-      temperature: currentTempObj.temperature,
-      windSpeed: matchingWindObj!.windSpeed,
-      precipProb: matchingPreciptObj!.precipProb
+    if (matchingWindObj && matchingPreciptObj) {
+      let cleanedHour: CleanedHour = {
+        month: currentTempObj.month,
+        day: currentTempObj.day,
+        hour: currentTempObj.hour,
+        inCalendar: false,
+        temperature: currentTempObj.temperature,
+        windSpeed: matchingWindObj!.windSpeed,
+        precipProb: matchingPreciptObj!.precipProb
+      }
+      newArray.push(cleanedHour)
     }
 
-    return [...newArray, cleanedHour]
+    return newArray
   }, [])
 };
 
