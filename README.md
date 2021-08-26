@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+# Can I go look at a tree?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Can I go look at a tree? was a Mod 3 solo project in the Front End program at the [Turing School of Software and Design](https://turing.io/). The assignment was to build out a multi-page application using [React](https://reactjs.org/), [Router](https://reactrouter.com/), [Cypress](https://www.cypress.io/) and [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html) to create a product which helps a niche audience solve a unique problem.
 
-## Available Scripts
+That original project can be found [here](https://github.com/alexmkio/can-i).
 
-In the project directory, you can run:
+For my personal learning I decided to refactor it using [TypeScript](https://www.typescriptlang.org/).
 
-### `yarn start`
+This project is deployed [here](https://can-i-typescript.vercel.app/#/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Install
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Clone down this repository `git clone https://github.com/alexmkio/can-i-typescript`
+2. CD into your local clone `cd can-i-typescript`
+3. Install project dependencies `npm install`
+4. Run `npm start`
+5. Open `http://localhost:3000/` in your preferred browser
 
-### `yarn test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Gif of the homepage, search functionality, and results page](./src/assets/readme01.gif)
+* Gif of the homepage, search functionality, and results page
 
-### `yarn build`
+![Gif showing the ability to add and remove an hour to your calendar from the suitable hours page](./src/assets/readme02.gif)
+* Gif showing the ability to add and remove an hour to your calendar from the suitable hours page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Gif showing the ability to remove an hour from your calendar](./src/assets/readme02.gif)
+* Gif showing the ability to remove an hour from your calendar
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Gif demonstrating responsiveness of the app by showing it on a laptop](./src/assets/readme04.gif)
+* Gif demonstrating responsiveness of the app by showing it on a laptop
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contributors
 
-### `yarn eject`
+This application was built by [Alex Kio](https://github.com/alexmkio/); a Front End Engineering, Mod 3 student at the [Turing School of Software and Design](https://turing.io/).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Technologies Used
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This application was built using the [React](https://reactjs.org/) javascript framework. [Router](https://reactrouter.com/) was used for multi-page functionality. [Cypress](https://www.cypress.io/) and [TypeScript](https://www.typescriptlang.org/) were used to test user stories and data typing. GitHub and Git were used for version control and collaboration. HTTP Request is being used to Get inside of an async await function.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Learning Goals
+I went into this project excited to solidify my understanding of React hooks, React Router, and to overcome the challenge of working with such a complicated dataset.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## The Evolution of the Project
+I started this project how I do most projects: fetch, manipulate, and evaluate the data required to provide the base functionality. The data returned from the final fetch is around 8200 lines long and required extensive cleaning. I worked one small problem at a time to ensure that the data was being compiled in the type and system of measurement best for future manipulation or display. Once I had the data in the desired format I worked to prove that I could evaluate it based on user input values.
 
-## Learn More
+I then worked one user flow/component at a time to develop out the DOM without focusing heavily on styling. For the sake of time, and the ability to have my testing suite peer-reviewed by [Ash](https://github.com/AshleyOh-bit), I pivoted to working on Cypress testing and PropTypes. Once this was finished I pivoted back to styling and my list of “nice-to-haves” to polish the project.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Reflections
+I only wish I would have had more time. I thoroughly enjoyed the numerous and varied complications that arose during this journey. I don’t feel finished. I am very proud of my architecture under the hood, and wish I had the time to invest in bringing the DOM up to par. There is still functionality, user flows, and presentation left on my “nice-to-haves” list. Also, I really appreciate the time [Ash](https://github.com/AshleyOh-bit) took to give me quality feedback on [this PR](https://github.com/alexmkio/can-i/pull/22). Thank you!
