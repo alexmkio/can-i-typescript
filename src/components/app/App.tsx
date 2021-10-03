@@ -35,7 +35,7 @@ export const App = () => {
       setCoordinates(coordinates)
       setForecast(cleanedData)
     } catch (error) {
-      setErrorCode(Number(error.message))
+      // setErrorCode(Number(error.message))
     }
   };
 
