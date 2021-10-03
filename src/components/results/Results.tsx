@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ResultsProps } from '../../interfaces/index';
-import './Results.css';
 
 export const Results: React.FC<ResultsProps> = ({ notice }) => {
   let result
@@ -14,7 +13,7 @@ export const Results: React.FC<ResultsProps> = ({ notice }) => {
   }
 
   return (
-    <section className='results'>
+    <section>
       {result}
       <Link to='/good_weather'>See all the future good weather</Link>
     </section>
