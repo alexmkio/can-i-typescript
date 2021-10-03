@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Link, Route, Switch, Redirect } from 'react-router-dom';
-import './App.css';
 import { Search } from '../search/Search';
 import { Results } from '../results/Results'
 import { Possibilities } from '../possibilities/Possibilities'
@@ -78,9 +77,9 @@ export const App = () => {
 
   return (
     <>
-      <header>
+      <header className="bg-gray-200">
         <Link to='/'>
-          <h1>Can I look at a tree?</h1>
+          <h1 className="text-7xl text-center p-8">Can I look at a tree?</h1>
         </Link>
       </header>
       <main>
