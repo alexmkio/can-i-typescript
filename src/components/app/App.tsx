@@ -77,7 +77,7 @@ export const App = () => {
 
   return (
     <>
-      <header className="bg-gray-200">
+      <header className="bg-gray-200 shadow-md">
         <Link to='/'>
           <h1 className="text-7xl text-center p-8">Can I go outside?</h1>
         </Link>
