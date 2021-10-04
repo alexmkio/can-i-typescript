@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ErrorProps } from '../../interfaces/index';
-import './Error.css';
 import { httpResponses } from '../../utils/httpResponses'
 
 export const Error: React.FC<ErrorProps> = ({ errorCode, clearSelected }) => {
