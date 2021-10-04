@@ -21,8 +21,8 @@ export const Search: React.FC<SearchProps> = ({ getForecast }) => {
   }
 
   return (
-    <section className="flex justify-center my-16">
-      <section className="flex flex-col w-1/3">
+    <section className="flex my-16 text-center items-center justify-center">
+      <section className="flex flex-col w-11/12 sm:w-9/12 md:w-7/12 lg:w-full">
         <h2 className="text-3xl">Select your weather thresholds and find out if you can go outside</h2>
         <form className="mt-4 flex flex-col items-center">
           
