@@ -34,9 +34,9 @@ export const App = () => {
       setCoordinates(coordinates)
       setForecast(cleanedData)
     } catch (error) {
-      // setErrorCode(Number(error.message))
+      setErrorCode(Number(error.message))
     }
-  };
+  }
 
   useEffect(() => {
     fetchAndCleanData()
@@ -53,7 +53,7 @@ export const App = () => {
       setNotice(notice)
       setSuitableHours(suitableHours)
     }
-  };
+  }
 
   const clearSelected = () => {
     setErrorCode(0)
@@ -114,10 +114,10 @@ export const App = () => {
             <Redirect to='/404' />
           </Switch>
         )}
-        {errorCode === 0 &&
+        {errorCode &&
           <Error errorCode={errorCode} clearSelected={clearSelected} />
         }
       </main>
     </>
-  );
-};
+  )
+}

@@ -11,7 +11,7 @@ export const fetchData = async (url: string) => {
 
   let response = await fetch(url, opts);
   return checkForError(response);
-};
+}
 
 const checkForError = async (response: Response) => {
   if (!response.ok) {
