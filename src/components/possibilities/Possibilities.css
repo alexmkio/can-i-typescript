@@ -1,4 +1,4 @@
-.poss {
+/* .poss {
   display: flex;
   flex-direction: column;
 }
@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 .cards {
   margin: 1vh auto;
