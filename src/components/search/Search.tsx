@@ -63,7 +63,7 @@ export const Search: React.FC<SearchProps> = ({ getForecast }) => {
             </select>
           </label>
 
-          <label className="flex flex-col items-center my-3">
+          <label className="flex flex-col items-center text-center my-3">
             <p className="text-gray-700">Probability of Precipitation</p>
             <select name='precipProbability' value={precipProbability}
               className="rounded-full w-24 mt-1 bg-gray-100 shadow-md cursor-pointer"

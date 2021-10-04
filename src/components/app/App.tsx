@@ -79,7 +79,7 @@ export const App = () => {
     <>
       <header className="bg-gray-200 shadow-md">
         <Link to='/'>
-          <h1 className="text-7xl text-center p-8 transition duration-300 ease-in-out hover:text-purple-800">Can I go outside?</h1>
+          <h1 className="text-4xl sm:text-7xl text-center p-4 sm:p-8 transition duration-300 ease-in-out hover:text-purple-800">Can I go outside?</h1>
         </Link>
       </header>
       <main>
