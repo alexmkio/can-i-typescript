@@ -114,7 +114,7 @@ export const App = () => {
             <Redirect to='/404' />
           </Switch>
         )}
-        {errorCode &&
+        {errorCode !== 0 &&
           <Error errorCode={errorCode} clearSelected={clearSelected} />
         }
       </main>
