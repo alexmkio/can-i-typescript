@@ -17,21 +17,18 @@ export const HourCard: React.FC<HourProps> = ({ hour, addToCalendar }) => {
         </button>
       </label>
 
-      <dl className="flex flex-col items-center">
-        <dt className="mt-4 uppercase">Date</dt>
-        <dd className="text-xl uppercase">{month} {hour.day}</dd>
+      <dl className="flex flex-col items-center text-center uppercase">
+        <dt className="mt-4">Date</dt>
+        <dd className="text-xl">{time} {month} {hour.day}</dd>
 
-        <dt className="mt-4 uppercase">Hour</dt>
-        <dd className="text-xl uppercase">{time}</dd>
+        <dt className="mt-4">Temperature</dt>
+        <dd className="text-xl">{hour.temperature} <span>&#8457;</span></dd>
 
-        <dt className="mt-4 uppercase">Temperature</dt>
-        <dd className="text-xl uppercase">{hour.temperature} <span>&#8457;</span></dd>
+        <dt className="mt-4">Wind Speed</dt>
+        <dd className="text-xl">{hour.windSpeed} mph</dd>
 
-        <dt className="mt-4 uppercase">Wind Speed</dt>
-        <dd className="text-xl uppercase">{hour.windSpeed} mph</dd>
-
-        <dt className="mt-4 uppercase">Probability of Precipitation</dt>
-        <dd className="text-xl uppercase">{hour.precipProb}%</dd>
+        <dt className="mt-4">Probability of Precipitation</dt>
+        <dd className="text-xl">{hour.precipProb}%</dd>
       </dl>
     </article>
   )

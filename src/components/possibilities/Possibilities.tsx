@@ -23,7 +23,7 @@ export const Possibilities: React.FC<PossibilitiesProps> = ({ suitableHours, add
       </Link>
       <section className='p-8
         grid gap-8 w-11/12
-        sm:grid-cols-2 sm:gap-4 sm:w-auto
+        sm:grid-cols-2 sm:gap-6 sm:w-auto
         md:grid-cols-3
         lg:grid-cols-4
         xl:grid-cols-6
