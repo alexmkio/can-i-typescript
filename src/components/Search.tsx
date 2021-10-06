@@ -31,7 +31,7 @@ export const Search: React.FC<SearchProps> = ({ getForecast }) => {
       <section className="flex flex-col w-11/12 sm:w-9/12 md:w-7/12 lg:w-full">
         <h2 className="text-3xl">Select your weather thresholds and find out if you can go outside</h2>
 
-        <section className="mt-12">
+        <section className="mt-6 md:mt-12">
           <FormControl className="w-2/12">
             <InputLabel>Min Temperature</InputLabel>
             <Select
@@ -46,7 +46,7 @@ export const Search: React.FC<SearchProps> = ({ getForecast }) => {
           </FormControl>
         </section>
 
-        <section className="mt-12">
+        <section className="mt-6 md:mt-12">
           <FormControl className="w-2/12">
             <InputLabel>Max Temperature</InputLabel>
             <Select
@@ -61,7 +61,7 @@ export const Search: React.FC<SearchProps> = ({ getForecast }) => {
           </FormControl>
         </section>
 
-        <section className="mt-12">
+        <section className="mt-6 md:mt-12">
           <FormControl className="w-2/12">
             <InputLabel>Wind Speed</InputLabel>
             <Select
@@ -77,7 +77,7 @@ export const Search: React.FC<SearchProps> = ({ getForecast }) => {
           </FormControl>
         </section>
 
-        <section className="mt-12">
+        <section className="mt-6 md:mt-12">
           <FormControl className="w-2/12">
             <InputLabel>Probability of Precipitation</InputLabel>
             <Select
@@ -92,7 +92,7 @@ export const Search: React.FC<SearchProps> = ({ getForecast }) => {
           </FormControl>
         </section>
 
-        <section className="mt-12">
+        <section className="mt-6 md:mt-12">
           <Link to='/results' onClick={() => onSubmitSearch()}>
             <Button variant="contained">submit</Button>
           </Link>
