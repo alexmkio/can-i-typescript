@@ -3,6 +3,7 @@ import { CalendarProps } from '../interfaces/index';
 import { HourCard } from "./HourCard"
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export const Calendar: React.FC<CalendarProps> = ({ calendar, addToCalendar }) => {
   let hourCards = calendar.map(hour => {
@@ -37,7 +38,7 @@ export const Calendar: React.FC<CalendarProps> = ({ calendar, addToCalendar }) =
         <p className="text-xl md:text-2xl capitalize">Your calendar is empty</p>
         <section className="mt-1 md:mt-2">
           <Link to='/good_weather'>
-            <Button variant="outlined" size="large">go back</Button>
+            <Button variant="outlined" size="large" startIcon={<ArrowBackIcon />}>go back</Button>
           </Link>
         </section>
       </section>

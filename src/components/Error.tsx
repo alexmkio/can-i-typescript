@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ErrorProps } from '../interfaces/index';
 import { httpResponses } from '../utils/httpResponses'
 import Button from '@mui/material/Button';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export const Error: React.FC<ErrorProps> = ({ errorCode, clearSelected }) => {
   let matchingResponse = httpResponses.find(response =>
@@ -18,7 +19,7 @@ export const Error: React.FC<ErrorProps> = ({ errorCode, clearSelected }) => {
           <p className="mt-6 text-xl">{matchingResponse.description}</p>
           <section className="flex flex-col items-center mt-8">
             <Link to='/'>
-              <Button variant="outlined" size="large" onClick={clearSelected}>back</Button>
+              <Button variant="outlined" size="large" startIcon={<ArrowBackIcon />} onClick={clearSelected}>back</Button>
             </Link>
           </section>
         </section>

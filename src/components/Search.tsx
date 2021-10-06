@@ -6,6 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export const Search: React.FC<SearchProps> = ({ getForecast }) => {
   const [minTemp, setMinTemp] = useState(50);
@@ -93,7 +94,7 @@ export const Search: React.FC<SearchProps> = ({ getForecast }) => {
 
         <section className="mt-6 md:mt-12">
           <Link to='/results' onClick={() => onSubmitSearch()}>
-            <Button variant="outlined" size="large">submit</Button>
+            <Button variant="outlined" size="large" endIcon={<ArrowForwardIcon />}>submit</Button>
           </Link>
         </section>
 
