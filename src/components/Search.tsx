@@ -6,6 +6,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Button from '@mui/material/Button';
 
 export const Search: React.FC<SearchProps> = ({ getForecast }) => {
   const [minTemp, setMinTemp] = useState(50);
@@ -91,9 +92,11 @@ export const Search: React.FC<SearchProps> = ({ getForecast }) => {
           </FormControl>
         </section>
 
-        <Link to='/results' onClick={() => onSubmitSearch()}>
-          <button className="uppercase bg-yellow-300 border border-gray-900 rounded-full shadow-md py-3 px-6 mt-5 transition duration-500 ease-in-out hover:bg-green-400 transform hover:scale-110">submit</button>
-        </Link>
+        <section className="mt-12">
+          <Link to='/results' onClick={() => onSubmitSearch()}>
+            <Button variant="contained">submit</Button>
+          </Link>
+        </section>
 
       </section>
     </section>
