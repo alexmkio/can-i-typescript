@@ -28,11 +28,11 @@ export const Search: React.FC<SearchProps> = ({ getForecast }) => {
 
   return (
     <section className="flex my-4 md:my-8 text-center items-center justify-center">
-      <section className="flex flex-col w-11/12 sm:w-9/12 md:w-7/12 lg:w-full">
+      <section className="flex flex-col w-11/12 sm:w-9/12 md:w-7/12 lg:w-9/12">
         <h2 className="text-3xl">Select your weather thresholds and find out if you can go outside</h2>
 
         <section className="mt-6 md:mt-12">
-          <FormControl className="w-2/12">
+          <FormControl className="w-44">
             <InputLabel>Min Temperature</InputLabel>
             <Select
               value={minTemp}
@@ -47,7 +47,7 @@ export const Search: React.FC<SearchProps> = ({ getForecast }) => {
         </section>
 
         <section className="mt-6 md:mt-12">
-          <FormControl className="w-2/12">
+          <FormControl className="w-44">
             <InputLabel>Max Temperature</InputLabel>
             <Select
               value={maxTemp}
@@ -62,7 +62,7 @@ export const Search: React.FC<SearchProps> = ({ getForecast }) => {
         </section>
 
         <section className="mt-6 md:mt-12">
-          <FormControl className="w-2/12">
+          <FormControl className="w-44">
             <InputLabel>Wind Speed</InputLabel>
             <Select
               value={wind}
@@ -78,7 +78,7 @@ export const Search: React.FC<SearchProps> = ({ getForecast }) => {
         </section>
 
         <section className="mt-6 md:mt-12">
-          <FormControl className="w-2/12">
+          <FormControl className="w-44">
             <InputLabel>Probability of Precipitation</InputLabel>
             <Select
               value={precipProbability}
