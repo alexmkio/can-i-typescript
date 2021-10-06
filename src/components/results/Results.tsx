@@ -13,7 +13,7 @@ export const Results: React.FC<ResultsProps> = ({ notice }) => {
   }
 
   return (
-    <section className="flex flex-col items-center my-16">
+    <section className="flex flex-col items-center my-4 md:my-8">
       {result}
       <p className="mt-6 text-xl">To see all the forcasted hours that satisfy your thresholds</p>
       <Link to='/good_weather'>
