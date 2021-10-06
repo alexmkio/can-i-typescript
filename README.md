@@ -1,3 +1,4 @@
+![GitHub Actions Workflow](https://github.com/alexmkio/can-i-typescript/actions/workflows/deployment.js.yml/badge.svg)
 # Can I go look at a tree?
 
 Can I go look at a tree? was a Mod 3 solo project in the Front End program at the [Turing School of Software and Design](https://turing.io/). The assignment was to build out a multi-page application using [React](https://reactjs.org/), [Router](https://reactrouter.com/), [Cypress](https://www.cypress.io/) and [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html) to create a product which helps a niche audience solve a unique problem.
