@@ -14,6 +14,19 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 export const Possibilities: React.FC<PossibilitiesProps> = ({ suitableHours, addToCalendar }) => {
+  let hourCards = suitableHours.map((suitableHour) => (
+    <TableRow
+      key={`${suitableHour.month}${suitableHour.day}${suitableHour.hour}`}
+      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+    >
+      <TableCell component="th" scope="row">{suitableHour.month} {suitableHour.day}</TableCell>
+      <TableCell align="right">{suitableHour.hour}</TableCell>
+      <TableCell align="right">{suitableHour.temperature}</TableCell>
+      <TableCell align="right">{suitableHour.windSpeed}</TableCell>
+      <TableCell align="right">{suitableHour.precipProb}</TableCell>
+    </TableRow>
+  ))
+
 
   return (
     <TableContainer component={Paper}>
@@ -28,18 +41,7 @@ export const Possibilities: React.FC<PossibilitiesProps> = ({ suitableHours, add
           </TableRow>
         </TableHead>
         <TableBody>
-          {suitableHours.map((suitableHour) => (
-            <TableRow
-              key={`${suitableHour.month}${suitableHour.day}${suitableHour.hour}`}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">{suitableHour.month} {suitableHour.day}</TableCell>
-              <TableCell align="right">{suitableHour.hour}</TableCell>
-              <TableCell align="right">{suitableHour.temperature}</TableCell>
-              <TableCell align="right">{suitableHour.windSpeed}</TableCell>
-              <TableCell align="right">{suitableHour.precipProb}</TableCell>
-            </TableRow>
-          ))}
+          {hourCards}
         </TableBody>
       </Table>
     </TableContainer>
