@@ -1,7 +1,7 @@
 import React from 'react';
 import { PossibilitiesProps } from '../interfaces/index';
 import { Link } from 'react-router-dom';
-import { HourCard } from "./HourCard"
+import { HourRow } from "./HourRow"
 import Button from '@mui/material/Button';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 
@@ -15,7 +15,7 @@ import Paper from '@mui/material/Paper';
 
 export const Possibilities: React.FC<PossibilitiesProps> = ({ suitableHours, addToCalendar }) => {
   let hourCards = suitableHours.map((suitableHour) => (
-    <HourCard
+    <HourRow
       key={`${suitableHour.month}${suitableHour.day}${suitableHour.hour}`}
       hour={suitableHour}
       addToCalendar={addToCalendar}

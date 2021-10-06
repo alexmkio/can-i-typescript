@@ -4,7 +4,7 @@ import { calendar } from '../utils/time'
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 
-export const HourCard: React.FC<HourProps> = ({ hour, addToCalendar }) => {
+export const HourRow: React.FC<HourProps> = ({ hour, addToCalendar }) => {
   let month = calendar.months.find(month => month.number === hour.month)?.name
   let time = calendar.hours.find(thisHour => thisHour.number === hour.hour)?.name
 
