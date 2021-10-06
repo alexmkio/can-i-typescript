@@ -33,10 +33,11 @@ export const Possibilities: React.FC<PossibilitiesProps> = ({ suitableHours, add
       </section>
       
       <TableContainer component={Paper}>
-        <Table sx={{ maxWidth: 750 }} aria-label="simple table">
+        <Table sx={{ maxWidth: 850 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Date</TableCell>
+              <TableCell>In Calendar</TableCell>
+              <TableCell align="right">Date</TableCell>
               <TableCell align="right">Hour</TableCell>
               <TableCell align="right">Temperature&nbsp;(<span>&#8457;</span>)</TableCell>
               <TableCell align="right">Wind Speed&nbsp;(mph)</TableCell>
