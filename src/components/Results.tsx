@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ResultsProps } from '../interfaces/index';
+import Button from '@mui/material/Button';
 
 export const Results: React.FC<ResultsProps> = ({ notice }) => {
   let result
@@ -16,9 +17,11 @@ export const Results: React.FC<ResultsProps> = ({ notice }) => {
     <section className="flex flex-col items-center my-4 md:my-8">
       {result}
       <p className="mt-6 text-lg md:text-xl">To see all the forcasted hours that satisfy your thresholds</p>
-      <Link to='/good_weather'>
-        <button className="uppercase bg-yellow-300 border border-gray-900 rounded-full shadow-md mt-1 py-3 px-6 transition duration-500 ease-in-out hover:bg-red-400 transform hover:scale-110">click here</button>
-      </Link>
+      <section className="mt-1 md:mt-2">
+        <Link to='/good_weather'>
+          <Button variant="contained">click here</Button>
+        </Link>
+      </section>
     </section>
   )
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import { CalendarProps } from '../interfaces/index';
 import { HourCard } from "./HourCard"
 import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 export const Calendar: React.FC<CalendarProps> = ({ calendar, addToCalendar }) => {
   let hourCards = calendar.map(hour => {
@@ -34,9 +35,11 @@ export const Calendar: React.FC<CalendarProps> = ({ calendar, addToCalendar }) =
     return (
       <section className='flex flex-col items-center my-4 md:my-8'>
         <p className="text-xl md:text-2xl capitalize">Your calendar is empty</p>
-        <Link to='/good_weather'>
-          <button className="mt-8 uppercase bg-yellow-300 border border-gray-900 rounded-full shadow-md mt-1 py-3 px-6 transition duration-500 ease-in-out hover:bg-indigo-400 transform hover:scale-110">Go back</button>
-        </Link>
+        <section className="mt-1 md:mt-2">
+          <Link to='/good_weather'>
+            <Button variant="contained">go back</Button>
+          </Link>
+        </section>
       </section>
     )
   }

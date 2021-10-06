@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ErrorProps } from '../interfaces/index';
 import { httpResponses } from '../utils/httpResponses'
+import Button from '@mui/material/Button';
 
 export const Error: React.FC<ErrorProps> = ({ errorCode, clearSelected }) => {
   let matchingResponse = httpResponses.find(response =>
@@ -17,10 +18,7 @@ export const Error: React.FC<ErrorProps> = ({ errorCode, clearSelected }) => {
           <p className="mt-6 text-xl">{matchingResponse.description}</p>
           <section className="flex flex-col items-center mt-8">
             <Link to='/'>
-              <button
-                onClick={clearSelected}
-                className="uppercase bg-yellow-300 border border-gray-900 rounded-full shadow-md mt-1 py-3 px-6 transition duration-500 ease-in-out hover:bg-pink-400 transform hover:scale-110"
-              >Back</button>
+              <Button variant="contained" onClick={clearSelected}>back</Button>
             </Link>
           </section>
         </section>
