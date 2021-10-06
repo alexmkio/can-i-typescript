@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ResultsProps } from '../../interfaces/index';
+import { ResultsProps } from '../interfaces/index';
 
 export const Results: React.FC<ResultsProps> = ({ notice }) => {
   let result

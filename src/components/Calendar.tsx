@@ -1,6 +1,6 @@
 import React from 'react';
-import { CalendarProps } from '../../interfaces/index';
-import { HourCard } from "../hourCard/HourCard"
+import { CalendarProps } from '../interfaces/index';
+import { HourCard } from "./HourCard"
 import { Link } from 'react-router-dom';
 
 export const Calendar: React.FC<CalendarProps> = ({ calendar, addToCalendar }) => {
