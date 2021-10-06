@@ -15,7 +15,7 @@ export const Possibilities: React.FC<PossibilitiesProps> = ({ suitableHours, add
   })
 
   return (
-    <section className='flex flex-col items-center my-16'>
+    <section className='flex flex-col items-center my-4 md:my-8'>
       <h2 className='text-3xl'>Suitable hours to be outside</h2>
       <p className="mt-6 text-xl">Click on an hour to add or delete it from your calendar</p>
       <Link to='/calendar'>
