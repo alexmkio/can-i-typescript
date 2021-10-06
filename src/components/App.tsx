@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { Header } from '../header/Header';
-import { Search } from '../search/Search';
-import { Results } from '../results/Results'
-import { Possibilities } from '../possibilities/Possibilities'
-import { Calendar } from '../calendar/Calendar'
-import { Error } from '../error/Error'
-import { fetchData } from '../../utils/fetchCalls';
-import { cleanData } from '../../utils/cleanData';
-import { determineSuitableHours, craftNotice } from '../../utils/utils'
-import { IpFetch, CleanedHour, Notice, Thresholds } from '../../interfaces/index';
+import { Header } from './Header';
+import { Search } from './Search';
+import { Results } from './Results'
+import { Possibilities } from './Possibilities'
+import { Calendar } from './Calendar'
+import { Error } from './Error'
+import { fetchData } from '../utils/fetchCalls';
+import { cleanData } from '../utils/cleanData';
+import { determineSuitableHours, craftNotice } from '../utils/utils'
+import { IpFetch, CleanedHour, Notice, Thresholds } from '../interfaces/index';
 
 export const App = () => {
   const [coordinates, setCoordinates] = useState<IpFetch | undefined>(undefined);
