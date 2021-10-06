@@ -37,7 +37,7 @@ export const Calendar: React.FC<CalendarProps> = ({ calendar, addToCalendar }) =
         <p className="text-xl md:text-2xl capitalize">Your calendar is empty</p>
         <section className="mt-1 md:mt-2">
           <Link to='/good_weather'>
-            <Button variant="contained">go back</Button>
+            <Button variant="outlined" size="large">go back</Button>
           </Link>
         </section>
       </section>

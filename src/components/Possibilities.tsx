@@ -21,7 +21,7 @@ export const Possibilities: React.FC<PossibilitiesProps> = ({ suitableHours, add
       <p className="mt-6 text-lg md:text-xl">Click on an hour to add or delete it from your calendar</p>
       <section className="mt-1 md:mt-2">
         <Link to='/calendar'>
-          <Button variant="contained">your calendar</Button>
+          <Button variant="outlined" size="large">your calendar</Button>
         </Link>
       </section>
       <section className='p-8

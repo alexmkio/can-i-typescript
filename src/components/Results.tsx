@@ -19,9 +19,9 @@ export const Results: React.FC<ResultsProps> = ({ notice }) => {
       <p className="mt-6 text-lg md:text-xl">To see all the forcasted hours that satisfy your thresholds</p>
       <section className="mt-1 md:mt-2">
         <Link to='/good_weather'>
-          <Button variant="contained">click here</Button>
+          <Button variant="outlined" size="large">click here</Button>
         </Link>
       </section>
     </section>
   )
-};
+}

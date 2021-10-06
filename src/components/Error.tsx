@@ -18,7 +18,7 @@ export const Error: React.FC<ErrorProps> = ({ errorCode, clearSelected }) => {
           <p className="mt-6 text-xl">{matchingResponse.description}</p>
           <section className="flex flex-col items-center mt-8">
             <Link to='/'>
-              <Button variant="contained" onClick={clearSelected}>back</Button>
+              <Button variant="outlined" size="large" onClick={clearSelected}>back</Button>
             </Link>
           </section>
         </section>

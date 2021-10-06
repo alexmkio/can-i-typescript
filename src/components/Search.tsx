@@ -93,11 +93,11 @@ export const Search: React.FC<SearchProps> = ({ getForecast }) => {
 
         <section className="mt-6 md:mt-12">
           <Link to='/results' onClick={() => onSubmitSearch()}>
-            <Button variant="contained">submit</Button>
+            <Button variant="outlined" size="large">submit</Button>
           </Link>
         </section>
 
       </section>
     </section>
   )
-};
+}
