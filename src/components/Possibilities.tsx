@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PossibilitiesProps } from '../../interfaces/index';
-import { HourCard } from "../hourCard/HourCard"
+import { PossibilitiesProps } from '../interfaces/index';
+import { HourCard } from "./HourCard"
 
 export const Possibilities: React.FC<PossibilitiesProps> = ({ suitableHours, addToCalendar }) => {
   let hourCards = suitableHours.map(suitableHour => {

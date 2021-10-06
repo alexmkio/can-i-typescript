@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SearchProps } from '../../interfaces/index';
+import { SearchProps } from '../interfaces/index';
 
 export const Search: React.FC<SearchProps> = ({ getForecast }) => {
   const [minTemp, setMinTemp] = useState(50);

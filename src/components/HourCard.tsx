@@ -1,6 +1,6 @@
 import React from 'react';
-import { HourProps } from '../../interfaces/index';
-import { calendar } from '../../utils/time'
+import { HourProps } from '../interfaces/index';
+import { calendar } from '../utils/time'
 
 export const HourCard: React.FC<HourProps> = ({ hour, addToCalendar }) => {
   let month = calendar.months.find(month => month.number === hour.month)?.name
