@@ -5,16 +5,8 @@ import { HourRow } from "./HourRow"
 import Button from '@mui/material/Button';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-
 export const Possibilities: React.FC<PossibilitiesProps> = ({ suitableHours, addToCalendar }) => {
-  let hourCards = suitableHours.map((suitableHour) => (
+  let hourRows = suitableHours.map(suitableHour => (
     <HourRow
       key={`${suitableHour.month}${suitableHour.day}${suitableHour.hour}`}
       hour={suitableHour}
@@ -31,27 +23,21 @@ export const Possibilities: React.FC<PossibilitiesProps> = ({ suitableHours, add
           <Button variant="outlined" size="large" startIcon={<CalendarTodayIcon />} endIcon={<CalendarTodayIcon />}>your calendar</Button>
         </Link>
       </section>
-      
-      <TableContainer component={Paper}>
-        <Table sx={{ maxWidth: 850 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>In Calendar</TableCell>
-              <TableCell align="right">Date</TableCell>
-              <TableCell align="right">Hour</TableCell>
-              <TableCell align="right">Temperature&nbsp;(<span>&#8457;</span>)</TableCell>
-              <TableCell align="right">Wind Speed&nbsp;(mph)</TableCell>
-              <TableCell align="right">Probability of Precipitation&nbsp;(%)</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {hourCards}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      
+      <table className="table-fixed mt-4 md:mt-8 text-center">
+        <thead>
+          <tr className="bg-gray-900 text-gray-50 border-2 border-gray-900 divide-x-2 divide-white">
+            <th className="w-1/12 p-2">In Cal</th>
+            <th className="w-2/12">Date</th>
+            <th className="w-1/12">Hour</th>
+            <th className="w-1/12">Temp</th>
+            <th className="w-1/12">Wind</th>
+            <th className="w-1/12">Precipt</th>
+          </tr>
+        </thead>
+        <tbody>
+          {hourRows}
+        </tbody>
+      </table>
     </section>
-
-
   )
 }
