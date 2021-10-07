@@ -39,9 +39,9 @@ export const Search: React.FC<SearchProps> = ({ getForecast }) => {
               label="Min Temperature"
               onChange={event => setMinTemp(Number(event.target.value))}
             >
-              <MenuItem value={40}>40 ℉</MenuItem>
-              <MenuItem value={50}>50 ℉</MenuItem>
-              <MenuItem value={60}>60 ℉</MenuItem>
+              <MenuItem value={40}>40 <span>&#x2109;</span></MenuItem>
+              <MenuItem value={50}>50 <span>&#x2109;</span></MenuItem>
+              <MenuItem value={60}>60 <span>&#x2109;</span></MenuItem>
             </Select>
           </FormControl>
         </section>
@@ -54,9 +54,9 @@ export const Search: React.FC<SearchProps> = ({ getForecast }) => {
               label="Max Temperature"
               onChange={event => setMaxTemp(Number(event.target.value))}
             >
-              <MenuItem value={80}>80 ℉</MenuItem>
-              <MenuItem value={90}>90 ℉</MenuItem>
-              <MenuItem value={100}>100 ℉</MenuItem>
+              <MenuItem value={80}>80 <span>&#x2109;</span></MenuItem>
+              <MenuItem value={90}>90 <span>&#x2109;</span></MenuItem>
+              <MenuItem value={100}>100 <span>&#x2109;</span></MenuItem>
             </Select>
           </FormControl>
         </section>
