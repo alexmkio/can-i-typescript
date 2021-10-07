@@ -1,0 +1,21 @@
+{
+  "short_name": "Can I",
+  "name": "Can I Go Outside?",
+  "icons": [
+    {
+      "src": "icons-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icons-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "scope": "/",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#eeff41",
+  "background_color": "#eeff41"
+}
