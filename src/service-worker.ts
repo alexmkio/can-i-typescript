@@ -9,10 +9,10 @@
 // service worker, and the Workbox build step will be skipped.
 
 import { clientsClaim } from 'workbox-core';
+import { registerRoute } from 'workbox-routing';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
-import { registerRoute } from 'workbox-routing';
-import { StaleWhileRevalidate } from 'workbox-strategies';
+import { StaleWhileRevalidate, NetworkFirst } from 'workbox-strategies';
 
 declare const self: ServiceWorkerGlobalScope;
 
@@ -23,6 +23,56 @@ clientsClaim();
 // This variable must be present somewhere in your service worker file,
 // even if you decide not to use precaching. See https://cra.link/PWA
 precacheAndRoute(self.__WB_MANIFEST);
+
+
+
+
+// registerRoute(
+//   ({url}) => url.pathname.startsWith('/images/avatars/'),
+//   new StaleWhileRevalidate()
+// );
+
+// registerRoute(
+//   ({request}) => request.destination === 'image',
+//   new CacheFirst({
+//     cacheName: 'images',
+//     plugins: [
+//       new ExpirationPlugin({
+//         maxEntries: 60,
+//         maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+//       }),
+//     ],
+//   }),
+// );
+
+// registerRoute(
+//   ({ url }) => console.log('heyyy', url)
+// );
+
+registerRoute(
+  ({ url }) => url.hostname.includes("fonts.googleapis.com") || url.hostname.includes("fonts.gstatic.com"),
+  new StaleWhileRevalidate({
+    cacheName: "GoogleResources"
+  })
+)
+
+registerRoute(
+  ({ url }) => url.hostname.includes("localhost"),
+  new StaleWhileRevalidate({
+    cacheName: "CanIResources"
+  })
+)
+
+registerRoute(
+  ({ url }) => url.hostname.includes("api.ipgeolocation.io") || url.hostname.includes("api.weather.gov"),
+  new StaleWhileRevalidate({
+    cacheName: "ipAndWeather"
+  })
+)
+
+
+
+
 
 // Set up App Shell-style routing, so that all navigation requests
 // are fulfilled with your index.html shell. Learn more at
