@@ -10,8 +10,8 @@ import { fetchData } from '../utils/fetchCalls';
 import { cleanData } from '../utils/cleanData';
 import { determineSuitableHours, craftNotice } from '../utils/utils'
 import { IpFetch, CleanedHour, Notice, Thresholds } from '../interfaces/index';
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { db } from '../firebase';
+import { collection, addDoc, getDocs, doc, deleteDoc } from "firebase/firestore";
 
 export const App = () => {
   const [coordinates, setCoordinates] = useState<IpFetch | undefined>(undefined);
@@ -41,41 +41,48 @@ export const App = () => {
     }
   }
 
-  const fetchFirebaseData = async () => {
-    const firebaseConfig = {
-      apiKey: "AIzaSyBse-FqQnF_qxu8L80qh4vp7vqi_dzX1ZE",
-      authDomain: "can-i-typescript.firebaseapp.com",
-      projectId: "can-i-typescript",
-      storageBucket: "can-i-typescript.appspot.com",
-      messagingSenderId: "1014837999040",
-      appId: "1:1014837999040:web:ea861af5eac6cd31878425"
-    };
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+  const getCalendar = async () => {
     try {
-      const calendarCol = collection(db, 'calendar-hours');
-      const calSnapshot = await getDocs(calendarCol);
-      const hours = calSnapshot.docs.map(doc => {
-        let cleanedHour: CleanedHour = {
-          month: doc.data().month,
-          day: doc.data().day,
-          hour: doc.data().hour,
-          inCalendar: doc.data().inCalendar,
-          temperature: doc.data().temperature,
-          windSpeed: doc.data().windSpeed,
-          precipProb: doc.data().precipProb
-        }
-        return cleanedHour
-      })
-      setSchedule(hours)
+      const querySnapshot = await getDocs(collection(db, "calendar-hours"));
+      let num = 0
+      querySnapshot.forEach((doc) => {
+        num++
+        console.log(num)
+        // console.log(`${doc.id} => ${doc.data()}`);
+      });
     } catch (error) {
-      console.log('error', error)
+      console.log(error)
+    }
+  }
+
+  const addToFirebaseCalendar = async () => {
+    try {
+      const docRef = await addDoc(collection(db, "calendar-hours"), {
+        month: 10,
+        day: 25,
+        hour: 2,
+        inCalendar: true,
+        temperature: 76,
+        windSpeed: 0,
+        precipProb: 0
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  }
+  
+  const deleteFromCalendar = async () => {
+    try {
+      await deleteDoc(doc(db, "calendar-hours", "9GyNcrVDTr9zL2HyAKIm"));
+    } catch (error) {
+      console.log(error)
     }
   }
 
   useEffect(() => {
     fetchAndCleanData()
-    fetchFirebaseData()
+    getCalendar()
   }, [])
 
   const getForecast = async (thresholds: Thresholds) => {
