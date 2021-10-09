@@ -10,6 +10,8 @@ import { fetchData } from '../utils/fetchCalls';
 import { cleanData } from '../utils/cleanData';
 import { determineSuitableHours, craftNotice } from '../utils/utils'
 import { IpFetch, CleanedHour, Notice, Thresholds } from '../interfaces/index';
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
 export const App = () => {
   const [coordinates, setCoordinates] = useState<IpFetch | undefined>(undefined);
@@ -39,8 +41,41 @@ export const App = () => {
     }
   }
 
+  const fetchFirebaseData = async () => {
+    const firebaseConfig = {
+      apiKey: "AIzaSyBse-FqQnF_qxu8L80qh4vp7vqi_dzX1ZE",
+      authDomain: "can-i-typescript.firebaseapp.com",
+      projectId: "can-i-typescript",
+      storageBucket: "can-i-typescript.appspot.com",
+      messagingSenderId: "1014837999040",
+      appId: "1:1014837999040:web:ea861af5eac6cd31878425"
+    };
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    try {
+      const calendarCol = collection(db, 'calendar-hours');
+      const calSnapshot = await getDocs(calendarCol);
+      const hours = calSnapshot.docs.map(doc => doc.data()).map(hour => {
+        let cleanedHour: CleanedHour = {
+          month: hour.month,
+          day: hour.day,
+          hour: hour.hour,
+          inCalendar: hour.inCalendar,
+          temperature: hour.temperature,
+          windSpeed: hour!.windSpeed,
+          precipProb: hour!.precipProb
+        }
+        return cleanedHour
+      })
+      setSchedule(hours)
+    } catch (error) {
+      console.log('error', error)
+    }
+  }
+
   useEffect(() => {
     fetchAndCleanData()
+    fetchFirebaseData()
   }, [])
 
   const getForecast = async (thresholds: Thresholds) => {
