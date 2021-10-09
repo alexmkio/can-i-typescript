@@ -55,15 +55,15 @@ export const App = () => {
     try {
       const calendarCol = collection(db, 'calendar-hours');
       const calSnapshot = await getDocs(calendarCol);
-      const hours = calSnapshot.docs.map(doc => doc.data()).map(hour => {
+      const hours = calSnapshot.docs.map(doc => {
         let cleanedHour: CleanedHour = {
-          month: hour.month,
-          day: hour.day,
-          hour: hour.hour,
-          inCalendar: hour.inCalendar,
-          temperature: hour.temperature,
-          windSpeed: hour!.windSpeed,
-          precipProb: hour!.precipProb
+          month: doc.data().month,
+          day: doc.data().day,
+          hour: doc.data().hour,
+          inCalendar: doc.data().inCalendar,
+          temperature: doc.data().temperature,
+          windSpeed: doc.data().windSpeed,
+          precipProb: doc.data().precipProb
         }
         return cleanedHour
       })
