@@ -12,7 +12,9 @@ import { clientsClaim } from 'workbox-core';
 import { registerRoute } from 'workbox-routing';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
-import { StaleWhileRevalidate, NetworkFirst } from 'workbox-strategies';
+import { StaleWhileRevalidate } from 'workbox-strategies';
+// import { StaleWhileRevalidate, NetworkOnly } from 'workbox-strategies';
+// import { BackgroundSyncPlugin } from 'workbox-background-sync';
 
 declare const self: ServiceWorkerGlobalScope;
 
@@ -23,6 +25,20 @@ clientsClaim();
 // This variable must be present somewhere in your service worker file,
 // even if you decide not to use precaching. See https://cra.link/PWA
 precacheAndRoute(self.__WB_MANIFEST);
+
+
+
+// const bgSyncPlugin = new BackgroundSyncPlugin('queue', {
+//   maxRetentionTime: 24 * 60
+// });
+
+// registerRoute(
+// "firestore.googleapis.com",
+// new NetworkOnly({
+//   plugins: [bgSyncPlugin]
+// }),
+// 'POST'
+// );
 
 
 
@@ -70,7 +86,12 @@ registerRoute(
   })
 )
 
-
+// registerRoute(
+//   ({ url }) => url.hostname.includes("firestore.googleapis.com"),
+//   new StaleWhileRevalidate({
+//     cacheName: "Calendar"
+//   })
+// )
 
 
 
