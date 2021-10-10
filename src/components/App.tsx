@@ -37,8 +37,18 @@ export const App = () => {
 
       const querySnapshot = await getDocs(collection(db, "calendar-hours"));
       querySnapshot.forEach((doc) => {
-        console.log('fetching', doc.data())
-        // setSchedule([...schedule, doc.data()])
+        let docData = doc.data()
+        let fetchedCalHour: CleanedHour = {
+          month: docData.month,
+          day: docData.day,
+          hour: docData.hour,
+          inCalendar: docData.inCalendar,
+          temperature: docData.temperature,
+          windSpeed: docData.windSpeed,
+          precipProb: docData.precipProb,
+          key: docData.key
+        }
+        setSchedule([...schedule, fetchedCalHour])
       })
 
 
