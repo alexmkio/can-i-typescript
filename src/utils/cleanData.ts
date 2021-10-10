@@ -25,7 +25,8 @@ export const cleanData = (forecast: Weather) => {
         inCalendar: false,
         temperature: currentTempObj.temperature,
         windSpeed: matchingWindObj!.windSpeed,
-        precipProb: matchingPreciptObj!.precipProb
+        precipProb: matchingPreciptObj!.precipProb,
+        key: ''
       }
       newArray.push(cleanedHour)
     }

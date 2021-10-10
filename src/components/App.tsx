@@ -11,7 +11,7 @@ import { cleanData } from '../utils/cleanData';
 import { determineSuitableHours, craftNotice } from '../utils/utils'
 import { IpFetch, CleanedHour, Notice, Thresholds } from '../interfaces/index';
 import { db } from '../firebase';
-import { collection, addDoc, getDocs, doc, deleteDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs, doc, deleteDoc, onSnapshot } from "firebase/firestore";
 
 export const App = () => {
   const [coordinates, setCoordinates] = useState<IpFetch | undefined>(undefined);
@@ -34,6 +34,14 @@ export const App = () => {
       )
       let forecast = await fetchData(gridPoints.properties.forecastGridData)
       let cleanedData = cleanData(forecast)
+
+      const querySnapshot = await getDocs(collection(db, "calendar-hours"));
+      querySnapshot.forEach((doc) => {
+        console.log('fetching', doc.data())
+        // setSchedule([...schedule, doc.data()])
+      })
+
+
       setCoordinates(coordinates)
       setForecast(cleanedData)
     } catch (error) {
@@ -41,48 +49,34 @@ export const App = () => {
     }
   }
 
-  const getCalendar = async () => {
-    try {
-      const querySnapshot = await getDocs(collection(db, "calendar-hours"));
-      let num = 0
-      querySnapshot.forEach((doc) => {
-        num++
-        console.log(num)
-        // console.log(`${doc.id} => ${doc.data()}`);
-      });
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const getCalendar = async () => {
+  //   try {
+  //     const querySnapshot = await getDocs(collection(db, "calendar-hours"));
+  //     let num = 0
+  //     querySnapshot.forEach((doc) => {
+  //       num++
+  //       console.log(num)
+  //       // console.log(`${doc.id} => ${doc.data()}`);
+  //     });
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
-  const addToFirebaseCalendar = async () => {
-    try {
-      const docRef = await addDoc(collection(db, "calendar-hours"), {
-        month: 10,
-        day: 25,
-        hour: 2,
-        inCalendar: true,
-        temperature: 76,
-        windSpeed: 0,
-        precipProb: 0
-      });
-      console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
-  }
+  const unsub = onSnapshot(doc(db, "calendar-hours", "Ue7J7r8cj5jtIRxnja88"), (doc) => {
+    console.log("Current data: ", doc.metadata.hasPendingWrites, doc.data());
+  });
   
-  const deleteFromCalendar = async () => {
-    try {
-      await deleteDoc(doc(db, "calendar-hours", "9GyNcrVDTr9zL2HyAKIm"));
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const deleteFromCalendar = async () => {
+  //   try {
+  //     await deleteDoc(doc(db, "calendar-hours", "Ue7J7r8cj5jtIRxnja88"));
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
   useEffect(() => {
     fetchAndCleanData()
-    getCalendar()
   }, [])
 
   const getForecast = async (thresholds: Thresholds) => {
@@ -102,18 +96,31 @@ export const App = () => {
     setErrorCode(0)
   }
 
-  const addToCalendar = (hourObject: CleanedHour) => {
+  const addToCalendar = async (hourObject: CleanedHour) => {
+
     let suitable = suitableHours
     let thatOne = suitable.indexOf(hourObject)
     if (schedule.includes(hourObject)) {
-      let currentSchedule = schedule
-      let ind = currentSchedule.indexOf(hourObject)
-      currentSchedule.splice(ind, 1)
-      suitable[thatOne].inCalendar = false
-      setSchedule([...currentSchedule])
+      try {
+        await deleteDoc(doc(db, "calendar-hours", hourObject.key))
+        let currentSchedule = schedule
+        let ind = currentSchedule.indexOf(hourObject)
+        currentSchedule.splice(ind, 1)
+        suitable[thatOne].inCalendar = false
+        setSchedule([...currentSchedule])
+        
+      } catch (error) {
+        console.error("Error deleting document: ", error);
+      }
     } else {
-      suitable[thatOne].inCalendar = true
-      setSchedule([...schedule, hourObject])
+      try {
+        const docRef = await addDoc(collection(db, "calendar-hours"), hourObject);
+        suitable[thatOne].key = docRef.id
+        suitable[thatOne].inCalendar = true
+        setSchedule([...schedule, hourObject])
+      } catch (error) {
+        console.error("Error adding document: ", error);
+      }
     }
     setSuitableHours([...suitable])
   }

@@ -50,6 +50,7 @@ export interface CleanedHour {
   temperature: number;
   windSpeed:   number;
   precipProb:  number;
+  key:         string;
 }
 
 export interface Notice {
