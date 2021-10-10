@@ -63,9 +63,9 @@ export const App = () => {
   //   }
   // }
 
-  const unsub = onSnapshot(doc(db, "calendar-hours", "Ue7J7r8cj5jtIRxnja88"), (doc) => {
-    console.log("Current data: ", doc.metadata.hasPendingWrites, doc.data());
-  });
+  // const unsub = onSnapshot(doc(db, "calendar-hours", "Ue7J7r8cj5jtIRxnja88"), (doc) => {
+  //   console.log("Current data: ", doc.metadata.hasPendingWrites, doc.data());
+  // });
   
   // const deleteFromCalendar = async () => {
   //   try {
@@ -79,9 +79,9 @@ export const App = () => {
     fetchAndCleanData()
   }, [])
 
-  const getForecast = async (thresholds: Thresholds) => {
+  const getForecast = (thresholds: Thresholds) => {
     if (coordinates) {
-      let suitableHours = await determineSuitableHours(
+      let suitableHours = determineSuitableHours(
         thresholds,
         forecast,
         coordinates.time_zone.name
