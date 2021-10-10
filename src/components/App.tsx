@@ -61,6 +61,14 @@ export const App = () => {
     }
   }
 
+  const q = query(collection(db, "calendar-hours"));
+    onSnapshot(q, (querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+          console.log('listener', doc, doc.data())
+      }
+    )
+  })
+
   useEffect(() => {
     fetchAndCleanData()
   }, [])
