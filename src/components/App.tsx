@@ -12,6 +12,7 @@ import { determineSuitableHours, craftNotice } from '../utils/utils'
 import { IpFetch, CleanedHour, Notice, Thresholds } from '../interfaces/index';
 import { db } from '../firebase';
 import { collection, addDoc, getDocs, doc, deleteDoc } from "firebase/firestore";
+// import { onSnapshot, query } from "firebase/firestore"; 
 
 export const App = () => {
   const [coordinates, setCoordinates] = useState<IpFetch | undefined>(undefined);
@@ -57,6 +58,17 @@ export const App = () => {
       setErrorCode(Number(error.message))
     }
   }
+
+  // const q = query(collection(db, "calendar-hours"));
+  // onSnapshot(q, { includeMetadataChanges: true }, (snapshot) => {
+  //   snapshot.docChanges().forEach((change) => {
+  //     if (change.type === "added") {
+  //         console.log("added: ", change.doc.data());
+  //     }
+  //     const source = snapshot.metadata.fromCache ? "local cache" : "server";
+  //     console.log("Data came from " + source);
+  //   })
+  // })
 
   // const q = query(collection(db, "calendar-hours"));
   //   onSnapshot(q, (querySnapshot) => {

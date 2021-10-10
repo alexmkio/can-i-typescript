@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app"
-import { getFirestore } from "firebase/firestore"
+import { getFirestore, enableIndexedDbPersistence } from "firebase/firestore"
+// import { collection, onSnapshot, query } from "firebase/firestore"; 
 
 export const firebaseApp = initializeApp({
   apiKey: "AIzaSyBse-FqQnF_qxu8L80qh4vp7vqi_dzX1ZE",
@@ -11,3 +12,31 @@ export const firebaseApp = initializeApp({
 })
 
 export const db = getFirestore()
+
+enableIndexedDbPersistence(db)
+  .catch((err) => {
+    if (err.code === 'failed-precondition') {
+      console.log('failed-precondition IndexedDbPersistence enable (firebase.js): ' + err.code)
+      // Multiple tabs open, persistence can only be enabled
+      // in one tab at a a time.
+      // ...
+    } else if (err.code === 'unimplemented') {
+      console.log('unimplemented IndexedDbPersistence enable (firebase.js): ' + err.code)
+      // The current browser does not support all of the
+      // features required to enable persistence
+      // ...
+    }
+  })
+// Subsequent queries will use persistence, if it was enabled successfully
+
+// const q = query(collection(db, "calendar-hours"));
+// onSnapshot(q, { includeMetadataChanges: true }, (snapshot) => {
+//   snapshot.docChanges().forEach((change) => {
+//     if (change.type === "added") {
+//         console.log("added: ", change.doc.data());
+//     }
+
+//     const source = snapshot.metadata.fromCache ? "local cache" : "server";
+//     console.log("Data came from " + source);
+//   })
+// })
