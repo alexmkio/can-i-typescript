@@ -36,6 +36,26 @@ export const App = () => {
       let forecast = await fetchData(gridPoints.properties.forecastGridData)
       let cleanedData = cleanData(forecast)
 
+      // const q = query(collection(db, "calendar-hours"));
+      // onSnapshot(q, { includeMetadataChanges: true }, (snapshot) => {
+      //   let fetchedCal = snapshot.docChanges().map((change) => {
+      //     let docData = change.doc.data()
+      //     let fetchedCalHour: CleanedHour = {
+      //         month: docData.month,
+      //         day: docData.day,
+      //         hour: docData.hour,
+      //         inCalendar: docData.inCalendar,
+      //         temperature: docData.temperature,
+      //         windSpeed: docData.windSpeed,
+      //         precipProb: docData.precipProb,
+      //         key: change.doc.id
+      //       }
+      //       return fetchedCalHour
+      //   })
+      //   console.log('hey', fetchedCal)
+      //   // setSchedule(fetchedCal)
+      // })
+
       const querySnapshot = await getDocs(collection(db, "calendar-hours"))
       let fetchedCal = querySnapshot.docs.map(function(doc) {
         let docData = doc.data()
@@ -58,17 +78,6 @@ export const App = () => {
       setErrorCode(Number(error.message))
     }
   }
-
-  // const q = query(collection(db, "calendar-hours"));
-  // onSnapshot(q, { includeMetadataChanges: true }, (snapshot) => {
-  //   snapshot.docChanges().forEach((change) => {
-  //     if (change.type === "added") {
-  //         console.log("added: ", change.doc.data());
-  //     }
-  //     const source = snapshot.metadata.fromCache ? "local cache" : "server";
-  //     console.log("Data came from " + source);
-  //   })
-  // })
 
   // const q = query(collection(db, "calendar-hours"));
   //   onSnapshot(q, (querySnapshot) => {
@@ -100,6 +109,20 @@ export const App = () => {
   }
 
   const addToCalendar = async (hourObject: CleanedHour) => {
+
+
+    // const q = query(collection(db, "calendar-hours"));
+    // onSnapshot(q, { includeMetadataChanges: true }, (snapshot) => {
+    //   snapshot.docChanges().forEach((change) => {
+    //     // if (change.type === "added") {
+    //     //     console.log("added: ", change.doc.data());
+    //     // }
+    //     const source = snapshot.metadata.fromCache ? "local cache" : "server";
+    //     console.log(source, change.type, change.doc.data());
+    //   })
+    // })
+
+
     let suitable = suitableHours
     let foundHour = suitable.find(hour => hour.month === hourObject.month && hour.day === hourObject.day && hour.hour === hourObject.hour)
     let thatOne = suitable.indexOf(foundHour!)
