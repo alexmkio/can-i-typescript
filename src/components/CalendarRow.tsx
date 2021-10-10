@@ -4,7 +4,6 @@ import { calendar } from '../utils/time'
 import Checkbox from '@mui/material/Checkbox';
 
 export const CalendarRow: React.FC<HourProps> = ({ hour, addToCalendar }) => {
-  console.log('hour', hour)
   let month = calendar.months.find(month => month.number === hour.month)?.name
   let time = calendar.hours.find(thisHour => thisHour.number === hour.hour)?.name
   

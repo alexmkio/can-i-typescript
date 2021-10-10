@@ -11,8 +11,8 @@ import { cleanData } from '../utils/cleanData';
 import { determineSuitableHours, craftNotice } from '../utils/utils'
 import { IpFetch, CleanedHour, Notice, Thresholds } from '../interfaces/index';
 import { db } from '../firebase';
-import { collection, addDoc, getDocs, doc, deleteDoc, query, onSnapshot } from "firebase/firestore";
-// import { collection, addDoc, getDocs, doc, deleteDoc } from "firebase/firestore";
+// import { collection, addDoc, getDocs, doc, deleteDoc, query, onSnapshot } from "firebase/firestore";
+import { collection, addDoc, getDocs, doc, deleteDoc } from "firebase/firestore";
 
 export const App = () => {
   const [coordinates, setCoordinates] = useState<IpFetch | undefined>(undefined);
@@ -36,7 +36,8 @@ export const App = () => {
       let forecast = await fetchData(gridPoints.properties.forecastGridData)
       let cleanedData = cleanData(forecast)
 
-      const querySnapshot = await getDocs(collection(db, "calendar-hours"));
+      const querySnapshot = await getDocs(collection(db, "calendar-hours"))
+      let fetchedCal: CleanedHour[] = []
       querySnapshot.forEach((doc) => {
         let docData = doc.data()
         let fetchedCalHour: CleanedHour = {
@@ -49,9 +50,10 @@ export const App = () => {
           precipProb: docData.precipProb,
           key: doc.id
         }
-        console.log('fetchedHour', fetchedCalHour)
-        setSchedule([...schedule, fetchedCalHour])
+        fetchedCal = [...fetchedCal, fetchedCalHour]
       })
+      console.log('fetchedHours', fetchedCal)
+      setSchedule(fetchedCal)
 
 
       setCoordinates(coordinates)
@@ -61,13 +63,13 @@ export const App = () => {
     }
   }
 
-  const q = query(collection(db, "calendar-hours"));
-    onSnapshot(q, (querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-          console.log('listener', doc, doc.data())
-      }
-    )
-  })
+  // const q = query(collection(db, "calendar-hours"));
+  //   onSnapshot(q, (querySnapshot) => {
+  //     querySnapshot.forEach((doc) => {
+  //         console.log('listener', doc, doc.data())
+  //     }
+  //   )
+  // })
 
   useEffect(() => {
     fetchAndCleanData()
