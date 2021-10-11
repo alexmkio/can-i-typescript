@@ -1,0 +1,39 @@
+[debug] [2021-10-11T17:27:52.857Z] ----------------------------------------------------------------------
+[debug] [2021-10-11T17:27:52.858Z] Command:       /Users/ak/.nvm/versions/node/v16.11.0/bin/node /usr/local/bin/firebase init
+[debug] [2021-10-11T17:27:52.858Z] CLI Version:   9.20.0
+[debug] [2021-10-11T17:27:52.858Z] Platform:      darwin
+[debug] [2021-10-11T17:27:52.858Z] Node Version:  v16.11.0
+[debug] [2021-10-11T17:27:52.859Z] Time:          Mon Oct 11 2021 13:27:52 GMT-0400 (Eastern Daylight Time)
+[debug] [2021-10-11T17:27:52.859Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-10-11T17:27:52.862Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-10-11T17:27:52.862Z] > authorizing via signed-in user (alexandermartelkio@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/ak/turing/3mod/can-i-typescript
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2021-10-11T17:28:15.615Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2021-10-11T17:28:15.976Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2021-10-11T17:28:15.976Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project can-i-typescript (can-i-typescript) 
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
