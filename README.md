@@ -7,7 +7,7 @@ That original project can be found [here](https://github.com/alexmkio/can-i).
 
 For my personal learning I decided to refactor it using [TypeScript](https://www.typescriptlang.org/).
 
-This project is deployed [here](https://alexmkio.github.io/can-i-typescript/).
+This project is deployed [here](https://can-i-typescript.web.app/).
 
 ## Install
 
