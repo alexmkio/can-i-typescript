@@ -1,51 +1,32 @@
 ![GitHub Actions Workflow](https://github.com/alexmkio/can-i-typescript/actions/workflows/firebase-hosting-pull-request.yml/badge.svg)
 # Can I go look at a tree?
 
-Can I go look at a tree? was a Mod 3 solo project in the Front End program at the [Turing School of Software and Design](https://turing.io/). The assignment was to build out a single-page application using [React](https://reactjs.org/), [Router](https://reactrouter.com/), [Cypress](https://www.cypress.io/) and [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html) to create a product which helps a niche audience solve a unique problem.
+At Turing, we utilize the Pomodoro Technique which uses regularly scheduled breaks in order to maximize mental acuity. One of the instructors at Turing implores us to use this time to "Go look at a tree!" As a remote student in Florida, I found that the weather was often too inclement to "go look at a tree" during our scheduled POMs so I built this app.
 
-That original project can be found [here](https://github.com/alexmkio/can-i).
-
-For my personal learning I decided to refactor it using [TypeScript](https://www.typescriptlang.org/).
+This app utilizes an API built by the US National Weather Service, to determine if and when a user can go outside given weather thresholds that the user selected. The user is presented the number of hours they can go outside for or for how long they must wait. The user can see a list of hours that meet their selected thresholds and can add and remove any number of these hours to a personal calendar.
 
 This project is deployed [here](https://can-i-typescript.web.app/).
 
-## Install
+## Features
 
+![View of the homepage and search form on a mobile device](./src/assets/mobile.png)
+* View of the homepage and search form on a mobile device
+
+![View of the suitable hours page on a laptop](./src/assets/laptop.png)
+* View of the suitable hours page on a laptop
+
+![View of the user's calendar on a tablet](./src/assets/tablet.png)
+* View of the user's calendar on a tablet
+
+## Technologies Used
+This is a single-page application utilizing [React](https://reactjs.org/) and [React Router](https://reactrouter.com/). It is written in [TypeScript](https://www.typescriptlang.org/) and tested using [Cypress](https://www.cypress.io/). I am using [GitHub Actions](https://github.com/features/actions) for CI/CD. It is deployed to [Firebase](https://firebase.google.com/) Hosting as a [PWA](https://web.dev/progressive-web-apps/), and I am using features found in both to cache resources to the client allowing this app to be fully functional even in offline mode. I am using [Tailwind CSS](https://tailwindcss.com/) utility classes and [Material UI](https://mui.com/) components to make it look decent.
+
+## Install
 1. Clone down this repository `git clone https://github.com/alexmkio/can-i-typescript`
 2. CD into your local clone `cd can-i-typescript`
 3. Install project dependencies `npm install`
 4. Run `npm start`
 5. Open `http://localhost:3000/` in your preferred browser
 
-## Features
-
-![Gif of the homepage, search functionality, and results page](./src/assets/readme01.gif)
-* Gif of the homepage, search functionality, and results page
-
-![Gif showing the ability to add and remove an hour to your calendar from the suitable hours page](./src/assets/readme02.gif)
-* Gif showing the ability to add and remove an hour to your calendar from the suitable hours page
-
-![Gif showing the ability to remove an hour from your calendar](./src/assets/readme02.gif)
-* Gif showing the ability to remove an hour from your calendar
-
-![Gif demonstrating responsiveness of the app by showing it on a laptop](./src/assets/readme04.gif)
-* Gif demonstrating responsiveness of the app by showing it on a laptop
-
 ## Contributors
-
 This application was built by [Alex Kio](https://github.com/alexmkio/); a Front End Engineering, Mod 3 student at the [Turing School of Software and Design](https://turing.io/).
-
-## Technologies Used
-
-This application was built using the [React](https://reactjs.org/) javascript framework. [Router](https://reactrouter.com/) was used for multi-page functionality. [Cypress](https://www.cypress.io/) and [TypeScript](https://www.typescriptlang.org/) were used to test user stories and data typing. GitHub and Git were used for version control and collaboration. HTTP Request is being used to Get inside of an async await function.
-
-## Learning Goals
-I went into this project excited to solidify my understanding of React hooks, React Router, and to overcome the challenge of working with such a complicated dataset.
-
-## The Evolution of the Project
-I started this project how I do most projects: fetch, manipulate, and evaluate the data required to provide the base functionality. The data returned from the final fetch is around 8200 lines long and required extensive cleaning. I worked one small problem at a time to ensure that the data was being compiled in the type and system of measurement best for future manipulation or display. Once I had the data in the desired format I worked to prove that I could evaluate it based on user input values.
-
-I then worked one user flow/component at a time to develop out the DOM without focusing heavily on styling. For the sake of time, and the ability to have my testing suite peer-reviewed by [Ash](https://github.com/AshleyOh-bit), I pivoted to working on Cypress testing and PropTypes. Once this was finished I pivoted back to styling and my list of “nice-to-haves” to polish the project.
-
-## Reflections
-I only wish I would have had more time. I thoroughly enjoyed the numerous and varied complications that arose during this journey. I don’t feel finished. I am very proud of my architecture under the hood, and wish I had the time to invest in bringing the DOM up to par. There is still functionality, user flows, and presentation left on my “nice-to-haves” list. Also, I really appreciate the time [Ash](https://github.com/AshleyOh-bit) took to give me quality feedback on [this PR](https://github.com/alexmkio/can-i/pull/22). Thank you!
