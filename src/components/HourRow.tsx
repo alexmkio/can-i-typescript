@@ -13,9 +13,9 @@ export const HourRow: React.FC<HourProps> = ({ hour, addToCalendar }) => {
         <td><Checkbox onClick={() => addToCalendar(hour)} /></td>
         <td>{month} {hour.day}</td>
         <td>{time}</td>
-        <td>{hour.temperature}</td>
-        <td>{hour.windSpeed}</td>
-        <td>{hour.precipProb}</td>
+        <td>{hour.temperature} <span>&#x2109;</span></td>
+        <td>{hour.windSpeed}mph</td>
+        <td>{hour.precipProb}%</td>
       </tr>
     )
   } else {
@@ -24,9 +24,9 @@ export const HourRow: React.FC<HourProps> = ({ hour, addToCalendar }) => {
         <td><Checkbox onClick={() => addToCalendar(hour)} /></td>
         <td>{month} {hour.day}</td>
         <td>{time}</td>
-        <td>{hour.temperature}</td>
-        <td>{hour.windSpeed}</td>
-        <td>{hour.precipProb}</td>
+        <td>{hour.temperature} <span>&#x2109;</span></td>
+        <td>{hour.windSpeed}mph</td>
+        <td>{hour.precipProb}%</td>
       </tr>
     )
   }
