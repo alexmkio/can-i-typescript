@@ -113,7 +113,7 @@ const getProbabilityOfPrecipitation = (precipValues: ThresholdValues[]) => {
         month: thisMonth, 
         day: thisDay, 
         hour: thisHour,
-        precipProb: currentValueObject.value 
+        precipProb: Math.round(currentValueObject.value)
       }
       newArray.push(weatherObj)
     }
