@@ -30,5 +30,27 @@
   "display": "browser",
   "theme_color": "#eeff41",
   "background_color": "#eeff41",
-  "scope": "/"
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "screenshot_01.png",
+      "type": "image/png",
+      "sizes": "1316x2340"
+    },
+    {
+      "src": "screenshot_02.png",
+      "type": "image/png",
+      "sizes": "1316x2340"
+    },
+    {
+      "src": "screenshot_03.png",
+      "type": "image/png",
+      "sizes": "1316x2340"
+    },
+    {
+      "src": "screenshot_04.png",
+      "type": "image/png",
+      "sizes": "1316x2340"
+    }
+  ]
 }
