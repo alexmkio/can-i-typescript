@@ -1,6 +1,7 @@
 {
   "short_name": "Can I?",
   "name": "Can I Go Outside?",
+  "description": "An app that helps you figure out if and when the weather is nice enough to go outside",
   "icons": [
     {
       "src": "favicon.ico",
@@ -25,8 +26,31 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone",
+  "display_override": ["standalone", "fullscreen", "minimal-ui"],
+  "display": "browser",
   "theme_color": "#eeff41",
   "background_color": "#eeff41",
-  "scope": "/"
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "screenshot_01.png",
+      "type": "image/png",
+      "sizes": "1316x2340"
+    },
+    {
+      "src": "screenshot_02.png",
+      "type": "image/png",
+      "sizes": "1316x2340"
+    },
+    {
+      "src": "screenshot_03.png",
+      "type": "image/png",
+      "sizes": "1316x2340"
+    },
+    {
+      "src": "screenshot_04.png",
+      "type": "image/png",
+      "sizes": "1316x2340"
+    }
+  ]
 }
