@@ -63,15 +63,21 @@ export const App = () => {
   const addToCalendar = (hourObject: CleanedHour) => {
     let suitable = suitableHours
     let thatOne = suitable.indexOf(hourObject)
+    let currentSchedule = schedule
     if (schedule.includes(hourObject)) {
-      let currentSchedule = schedule
       let ind = currentSchedule.indexOf(hourObject)
       currentSchedule.splice(ind, 1)
       suitable[thatOne].inCalendar = false
       setSchedule([...currentSchedule])
     } else {
       suitable[thatOne].inCalendar = true
-      setSchedule([...schedule, hourObject])
+      let ind = schedule.findIndex(hour => (hour.month === hourObject.month && hour.day === hourObject.day && hour.hour > hourObject.hour) || hour.day > hourObject.day || hour.month > hourObject.month)
+      if (ind === -1) {
+        setSchedule([...schedule, hourObject])
+      } else {
+        currentSchedule.splice(ind, 0, hourObject)
+        setSchedule([...currentSchedule])
+      }
     }
     setSuitableHours([...suitable])
   }
