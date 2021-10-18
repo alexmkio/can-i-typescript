@@ -71,7 +71,13 @@ export const App = () => {
       setSchedule([...currentSchedule])
     } else {
       suitable[thatOne].inCalendar = true
-      let ind = schedule.findIndex(hour => (hour.month === hourObject.month && hour.day === hourObject.day && hour.hour > hourObject.hour) || hour.day > hourObject.day || hour.month > hourObject.month)
+      let ind = schedule.findIndex(hour =>
+        (hour.month === hourObject.month &&
+          hour.day === hourObject.day &&
+          hour.hour > hourObject.hour)
+        || hour.day > hourObject.day
+        || hour.month > hourObject.month
+      )
       if (ind === -1) {
         setSchedule([...schedule, hourObject])
       } else {
