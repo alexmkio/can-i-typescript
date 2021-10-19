@@ -1,11 +1,11 @@
 ![GitHub Actions Workflow](https://github.com/alexmkio/can-i-typescript/actions/workflows/firebase-hosting-pull-request.yml/badge.svg)
-# Can I go look at a tree?
+# Can I Go Outside?
 
 At Turing, we utilize the Pomodoro Technique which uses regularly scheduled breaks in order to maximize mental acuity. One of the instructors at Turing implores us to use this time to "Go look at a tree!" As a remote student in Florida, I found that the weather was often too inclement to "go look at a tree" during our scheduled POMs so I built this app.
 
 This app utilizes an API built by the US National Weather Service, to determine if and when a user can go outside given weather thresholds that the user selected. The user is presented the number of hours they can go outside for or for how long they must wait. The user can see a list of hours that meet their selected thresholds and can add and remove any number of these hours to a personal calendar.
 
-This project is deployed [here](https://can-i-typescript.web.app/).
+This project is deployed on the web [here](https://can-i-typescript.web.app/), and on the Google Play Store [here](https://play.google.com/store/apps/details?id=app.web.can_i_typescript.twa).
 
 ## Features
 
