@@ -5,7 +5,7 @@ At Turing, we utilize the Pomodoro Technique which uses regularly scheduled brea
 
 This app utilizes an API built by the US National Weather Service, to determine if and when a user can go outside given weather thresholds that the user selected. The user is presented the number of hours they can go outside for or for how long they must wait. The user can see a list of hours that meet their selected thresholds and can add and remove any number of these hours to a personal calendar.
 
-This project is deployed [here](https://can-i-typescript.web.app/).
+This project is deployed on the web [here](https://can-i-typescript.web.app/), and on the Google Play Store [here](https://play.google.com/store/apps/details?id=app.web.can_i_typescript.twa).
 
 ## Features
 
