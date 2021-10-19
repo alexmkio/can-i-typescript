@@ -1,5 +1,5 @@
 ![GitHub Actions Workflow](https://github.com/alexmkio/can-i-typescript/actions/workflows/firebase-hosting-pull-request.yml/badge.svg)
-# Can I go look at a tree?
+# Can I Go Outside?
 
 At Turing, we utilize the Pomodoro Technique which uses regularly scheduled breaks in order to maximize mental acuity. One of the instructors at Turing implores us to use this time to "Go look at a tree!" As a remote student in Florida, I found that the weather was often too inclement to "go look at a tree" during our scheduled POMs so I built this app.
 
