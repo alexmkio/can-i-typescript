@@ -4,7 +4,7 @@ import { CleanedHour, PreciptHour, TempHour, WindHour } from '../interfaces/inde
 export const cleanData = (forecast: Weather) => {
   let tempObjects = getTemperature(forecast.properties.temperature.values)
   let windObjects = getWindSpeed(forecast.properties.windSpeed.values)
-  let preciptObjects = getProbabilityOfPrecipitation(forecast.properties.windSpeed.values)
+  let preciptObjects = getProbabilityOfPrecipitation(forecast.properties.probabilityOfPrecipitation.values)
 
   return tempObjects.reduce((newArray: CleanedHour[], currentTempObj) => {
     let matchingWindObj = windObjects.find((currentWindObj) =>
