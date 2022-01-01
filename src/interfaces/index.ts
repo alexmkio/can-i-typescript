@@ -21,25 +21,29 @@ export interface Thresholds {
   probOfPrecip: number;
 }
 
-export interface TempHour {
-  month:       number;
-  day:         number;
-  hour:        number;
-  temperature: number;
+export interface TempHours {
+  [key: string]: {
+    month:       number;
+    day:         number;
+    hour:        number;
+    temperature: number;
+  }
 }
 
-export interface WindHour {
-  month:       number;
-  day:         number;
-  hour:        number;
+interface WindHour {
   windSpeed:   number;
 }
 
-export interface PreciptHour {
-  month:       number;
-  day:         number;
-  hour:        number;
-  precipProb:  number;
+export interface WindHours {
+  [key: string]: {
+    windSpeed:   number;
+  }
+}
+
+export interface PreciptHours {
+  [key: string]: {
+    precipProb:   number;
+  }
 }
 
 export interface CleanedHour {
