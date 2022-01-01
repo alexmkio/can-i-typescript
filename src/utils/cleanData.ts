@@ -1,42 +1,31 @@
 import { Weather, ThresholdValues } from "../interfaces/weather"
-import { CleanedHour, PreciptHour, TempHour, WindHour } from '../interfaces/index';
+import { CleanedHour, TempHours, WindHours, PreciptHours } from '../interfaces/index';
 
 export const cleanData = (forecast: Weather) => {
   let tempObjects = getTemperature(forecast.properties.temperature.values)
   let windObjects = getWindSpeed(forecast.properties.windSpeed.values)
-  let preciptObjects = getProbabilityOfPrecipitation(forecast.properties.windSpeed.values)
+  let preciptObjects = getProbabilityOfPrecipitation(forecast.properties.probabilityOfPrecipitation.values)
 
-  return tempObjects.reduce((newArray: CleanedHour[], currentTempObj) => {
-    let matchingWindObj = windObjects.find((currentWindObj) =>
-      currentWindObj.month === currentTempObj.month && 
-      currentWindObj.day === currentTempObj.day && 
-      currentWindObj.hour === currentTempObj.hour)
-
-    let matchingPreciptObj = preciptObjects.find((currentPreciptObj) =>
-      currentPreciptObj.month === currentTempObj.month && 
-      currentPreciptObj.day === currentTempObj.day && 
-      currentPreciptObj.hour === currentTempObj.hour)
-
-    if (matchingWindObj && matchingPreciptObj) {
-      let cleanedHour: CleanedHour = {
-        month: currentTempObj.month,
-        day: currentTempObj.day,
-        hour: currentTempObj.hour,
+  return Object.keys(tempObjects).reduce((acc: CleanedHour[], element) => {
+    if (windObjects[element] && preciptObjects[element]) {
+      let combinedHour: CleanedHour = {
+        month: tempObjects[element].month,
+        day: tempObjects[element].day,
+        hour: tempObjects[element].hour,
         inCalendar: false,
-        temperature: currentTempObj.temperature,
-        windSpeed: matchingWindObj!.windSpeed,
-        precipProb: matchingPreciptObj!.precipProb
+        temperature: tempObjects[element].temperature,
+        windSpeed: windObjects[element].windSpeed,
+        precipProb: preciptObjects[element].precipProb
       }
-      newArray.push(cleanedHour)
+      acc = [...acc, combinedHour]
     }
-
-    return newArray
+    return acc
   }, [])
 };
 
 const getTemperature = (tempValues: ThresholdValues[]) => {
-  return tempValues.reduce((newArray: TempHour[], currentValueObject) => {
-    let fullArray = currentValueObject.validTime.split('T')
+  return tempValues.reduce((acc: TempHours, element) => {
+    let fullArray = element.validTime.split('T')
     let dateArray = fullArray[0].split('-')
     let month = Number(dateArray[1])
     let day = Number(dateArray[2])
@@ -55,17 +44,17 @@ const getTemperature = (tempValues: ThresholdValues[]) => {
         month: thisMonth, 
         day: thisDay, 
         hour: thisHour,
-        temperature: ((currentValueObject.value! * (9 / 5)) + 32)
+        temperature: ((element.value! * (9 / 5)) + 32)
       }
-      newArray.push(weatherObj)
+      acc[`${makeDblDgts(thisMonth)}${makeDblDgts(thisDay)}${makeDblDgts(thisHour)}`] = weatherObj
     }
-    return newArray
-  }, [])
+    return acc
+  }, {})
 }
 
 const getWindSpeed = (windValues: ThresholdValues[]) => {
-  return windValues.reduce((newArray: WindHour[], currentValueObject) => {
-    let fullArray = currentValueObject.validTime.split('T')
+  return windValues.reduce((acc: WindHours, element) => {
+    let fullArray = element.validTime.split('T')
     let dateArray = fullArray[0].split('-')
     let month = Number(dateArray[1])
     let day = Number(dateArray[2])
@@ -81,20 +70,17 @@ const getWindSpeed = (windValues: ThresholdValues[]) => {
         thisHour = thisHour - 24
       }
       let weatherObj = { 
-        month: thisMonth, 
-        day: thisDay, 
-        hour: thisHour,
-        windSpeed: Math.round(currentValueObject.value! / 1.609344)
+        windSpeed: Math.round(element.value! / 1.609344)
       }
-      newArray.push(weatherObj)
+      acc[`${makeDblDgts(thisMonth)}${makeDblDgts(thisDay)}${makeDblDgts(thisHour)}`] = weatherObj
     }
-    return newArray
-  }, [])
+    return acc
+  }, {})
 }
 
 const getProbabilityOfPrecipitation = (precipValues: ThresholdValues[]) => {
-  return precipValues.reduce((newArray: PreciptHour[], currentValueObject) => {
-    let fullArray = currentValueObject.validTime.split('T')
+  return precipValues.reduce((acc: PreciptHours, element) => {
+    let fullArray = element.validTime.split('T')
     let dateArray = fullArray[0].split('-')
     let month = Number(dateArray[1])
     let day = Number(dateArray[2])
@@ -110,13 +96,14 @@ const getProbabilityOfPrecipitation = (precipValues: ThresholdValues[]) => {
         thisHour = thisHour - 24
       }
       let weatherObj = { 
-        month: thisMonth, 
-        day: thisDay, 
-        hour: thisHour,
-        precipProb: Math.round(currentValueObject.value)
+        precipProb: Math.round(element.value)
       }
-      newArray.push(weatherObj)
+      acc[`${makeDblDgts(thisMonth)}${makeDblDgts(thisDay)}${makeDblDgts(thisHour)}`] = weatherObj
     }
-    return newArray
-  }, [])
+    return acc
+  }, {})
+}
+
+const makeDblDgts = (num: Number) => {
+  return num.toString().length === 2 ? num : `0${num}`
 }
